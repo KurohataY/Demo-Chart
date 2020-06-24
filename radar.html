@@ -1,0 +1,54 @@
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  　<title>ライフチャート</title>
+</head>
+
+<body>
+  <canvas id="myRaderChart"></canvas>
+  <!-- CDN -->
+  　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+  <script>
+    var ctx = document.getElementById("myRaderChart");
+    Chart.defaults.global.defaultFontSize = 20;
+    var myRadarChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ["JavaScript", "Ruby", "Python", "Swift", "Java", "HTML・CSS", "Object-C"],
+        datasets: [{
+          label: '4:専門家ほどの知識　3:プログラムを制作し、デモとして完成させられる　2:個人で学習してみたことがある　1:授業などで触ったことがある）',
+          data: [3.5, 3, 3, 2, 1, 3, 1],
+          backgroundColor: 'RGBA(225,95,150, 0.5)',
+          borderColor: 'RGBA(225,95,150, 1)',
+          borderWidth: 1,
+          pointBackgroundColor: 'RGB(46,106,177)',
+        }, ]
+      },
+      options: {
+        title: {
+          display: true,
+          // text: 'プログラミングスキル',
+          fontSize: 30,
+        },
+        scale: {
+          ticks: {
+            suggestedMin: 0,
+            suggestedMax: 4,
+            stepSize: 1,
+            fontSize: 15,
+            callback: function(value, index, values) {
+              return value
+            }
+          },
+          pointLabels: {
+            fontSize: 20,
+          },
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
